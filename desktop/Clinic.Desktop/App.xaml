@@ -1,0 +1,8 @@
+<Application x:Class="Clinic.Desktop.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Application.Resources>
+        <!-- Global typography and font defaults -->
+        <FontFamily x:Key="AppFont">Cairo, Segoe UI, Tahoma</FontFamily>
+    </Application.Resources>
+</Application>

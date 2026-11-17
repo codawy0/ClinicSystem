@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <UseWindowsForms>true</UseWindowsForms>
+    <RootNamespace>Clinic.Desktop</RootNamespace>
+    <AssemblyName>Clinic.Desktop</AssemblyName>
+    <NuGetAudit>false</NuGetAudit>
+    
+    <!-- Assembly Metadata -->
+    <Title>نظام إدارة العيادة الطبية</Title>
+    <Description>نظام إدارة العيادات والمراكز الطبية - شل سطح المكتب ومضيف WebView2</Description>
+    <Company>Clinic Management System</Company>
+    <Product>Clinic.Desktop</Product>
+    <Version>2.0.0</Version>
+    <FileVersion>2.0.0.0</FileVersion>
+    <NeutralLanguage>ar</NeutralLanguage>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <!-- Microsoft.Web.WebView2 >= 1.0.1518.46 is strictly required for CoreWebView2.PrintAsync -->
+    <PackageReference Include="Microsoft.Web.WebView2" Version="1.0.2903.40" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

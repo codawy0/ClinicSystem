@@ -1,0 +1,66 @@
+@import '@fontsource/cairo/400.css';
+@import '@fontsource/cairo/600.css';
+@import '@fontsource/cairo/700.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  font-family: 'Cairo', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Printable thermal receipt */
+  .printable-receipt,
+  .printable-receipt * {
+    visibility: visible !important;
+  }
+  .printable-receipt {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 80mm !important;
+    margin: 0 !important;
+    padding: 2mm !important;
+    font-size: 11px !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Printable prescription */
+  .print-prescription-root,
+  .print-prescription-root * {
+    visibility: visible !important;
+  }
+  .print-prescription-root {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+
+  /* Printable documents & certificates (Sick Leave, Lab Slip) */
+  .printable-document,
+  .printable-document * {
+    visibility: visible !important;
+  }
+  .printable-document {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-shadow: none !important;
+    border: none !important;
+  }
+}

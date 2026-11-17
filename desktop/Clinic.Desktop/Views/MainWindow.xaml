@@ -1,0 +1,55 @@
+<Window x:Class="Clinic.Desktop.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:wv2="clr-namespace:Microsoft.Web.WebView2.Wpf;assembly=Microsoft.Web.WebView2.Wpf"
+        Title="نظام إدارة العيادة الطبية"
+        WindowState="Maximized"
+        Width="1280" Height="800"
+        FlowDirection="RightToLeft"
+        Background="#0f172a">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Desktop Shell Top Action Strip -->
+        <Border Grid.Row="0" Background="#1e293b" Padding="10,6" BorderBrush="#334155" BorderThickness="0,0,0,1">
+            <DockPanel LastChildFill="False">
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Right">
+                    <TextBlock Text="عيادة النخبة التخصصية" Foreground="#e2e8f0" VerticalAlignment="Center" 
+                               FontWeight="Bold" FontSize="13" FontFamily="Cairo, Segoe UI" Margin="6,0" />
+                    <TextBlock Text="•" Foreground="#64748b" VerticalAlignment="Center" Margin="4,0" />
+                    <TextBlock x:Name="TxtPrinterInfo" Text="الطابعة: جاهزة" Foreground="#94a3b8" 
+                               VerticalAlignment="Center" FontSize="11" FontFamily="Cairo, Segoe UI" />
+                </StackPanel>
+
+                <StackPanel Orientation="Horizontal" DockPanel.Dock="Left">
+                    <Button x:Name="BtnTvToggle" Content="📺 شاشة الانتظار (TV)" Click="BtnTvToggle_Click"
+                            Background="#0284c7" Foreground="White" BorderThickness="0" Padding="12,4" Margin="4,0"
+                            FontFamily="Cairo, Segoe UI" FontSize="11" Cursor="Hand" />
+                    <Button x:Name="BtnReload" Content="🔄 تحديث الشاشة" Click="BtnReload_Click"
+                            Background="#334155" Foreground="White" BorderThickness="0" Padding="10,4" Margin="4,0"
+                            FontFamily="Cairo, Segoe UI" FontSize="11" Cursor="Hand" />
+                </StackPanel>
+            </DockPanel>
+        </Border>
+
+        <!-- Main SPA Host WebView2 -->
+        <wv2:WebView2 x:Name="MainWebView" Grid.Row="1" />
+
+        <!-- Hidden Offscreen Silent Print WebView2 -->
+        <wv2:WebView2 x:Name="PrintWebView" Grid.Row="1" Width="0" Height="0" Visibility="Hidden" />
+
+        <!-- Splash / Connecting Overlay -->
+        <Border x:Name="LoadingOverlay" Grid.Row="1" Background="#0f172a" Visibility="Visible">
+            <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+                <TextBlock Text="نظام إدارة العيادة الطبية" Foreground="White" FontSize="28" FontWeight="Bold"
+                           FontFamily="Cairo, Segoe UI" HorizontalAlignment="Center" Margin="0,0,0,10" />
+                <TextBlock x:Name="TxtLoadingMessage" Text="جاري الاتصال بالخادم المحلي..." Foreground="#94a3b8"
+                           FontSize="14" FontFamily="Cairo, Segoe UI" HorizontalAlignment="Center" />
+                <ProgressBar IsIndeterminate="True" Width="260" Height="6" Margin="0,22,0,0" Foreground="#0284c7" />
+            </StackPanel>
+        </Border>
+    </Grid>
+</Window>
